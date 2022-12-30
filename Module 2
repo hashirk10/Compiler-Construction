@@ -1,0 +1,9 @@
+import ast
+
+def create_syntax_tree(source):
+    tree = ast.parse(source)
+    return tree
+source = input("Enter the exp: ")
+
+tree = create_syntax_tree(source)
+print(ast.dump(tree))
