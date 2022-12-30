@@ -1,0 +1,32 @@
+import re
+
+def lexer(expression):
+    
+    pattern_digits = "\d+"
+    pattern_chars = "[a-zA-Z]+"
+    pattern_brackets = "[()]"
+    pattern_operators = "[+-/*]"
+
+    
+    digits = re.finditer(pattern_digits, expression)
+    chars = re.finditer(pattern_chars, expression)
+    brackets = re.finditer(pattern_brackets, expression)
+    operators = re.finditer(pattern_operators, expression)
+
+    for match in digits:
+        print("DIGIT:", match.group())
+
+    for match in chars:
+        print("CHARACTER:", match.group())
+
+    for match in brackets:
+        print("BRACKET:", match.group())
+
+    for match in operators:
+        print("OPERATOR:", match.group())
+
+#Alphabets 
+lexer("a b*c")
+
+#Digits
+lexer("6+ (8*8)")
